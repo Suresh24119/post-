@@ -164,7 +164,12 @@ export default function PostCard({ post }) {
             color: 'var(--on-surface)', 
             lineHeight: '1.2', 
             letterSpacing: '-0.04em',
-            textTransform: 'capitalize'
+            textTransform: 'capitalize',
+            overflowWrap: 'anywhere',
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden'
         }}>
           {post.heading}
         </h3>
@@ -177,7 +182,8 @@ export default function PostCard({ post }) {
           WebkitLineClamp: 2, 
           WebkitBoxOrient: 'vertical', 
           overflow: 'hidden',
-          marginBottom: '2.5rem'
+          marginBottom: '2.5rem',
+          overflowWrap: 'anywhere'
         }}>
           {post.description}
         </p>
@@ -212,7 +218,7 @@ export default function PostCard({ post }) {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <span style={{ fontSize: '0.6rem', fontWeight: '900', opacity: 0.4, letterSpacing: '0.12em' }}>INTEL SOURCE</span>
-                <span style={{ fontWeight: '900', fontSize: '1rem', color: 'var(--on-surface)', letterSpacing: '-0.01em' }}>{post.custom_users?.username || "Anonymous Caller"}</span>
+                <span style={{ fontWeight: '900', fontSize: '1rem', color: 'var(--on-surface)', letterSpacing: '-0.01em', overflowWrap: 'anywhere' }}>{post.custom_users?.username || "Anonymous Caller"}</span>
             </div>
           </div>
           <div style={{ textAlign: 'right' }}>

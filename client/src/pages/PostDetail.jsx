@@ -198,11 +198,27 @@ export default function PostDetail() {
             <span style={{ fontSize: '0.8rem', opacity: 0.4, fontWeight: '700' }}>• {new Date(post.created_at).toLocaleDateString(undefined, { dateStyle: 'long' })}</span>
           </div>
 
-          <h1 style={{ fontSize: '4rem', fontWeight: '900', marginBottom: '2rem', letterSpacing: '-0.04em', lineHeight: '1.1', color: 'var(--on-surface)' }}>
+          <h1 style={{ 
+            fontSize: '4rem', 
+            fontWeight: '900', 
+            marginBottom: '2rem', 
+            letterSpacing: '-0.04em', 
+            lineHeight: '1.1', 
+            color: 'var(--on-surface)',
+            overflowWrap: 'anywhere'
+          }}>
             {post.heading}
           </h1>
           
-          <p style={{ fontSize: '1.35rem', lineHeight: '1.8', color: 'var(--on-surface)', opacity: 0.8, whiteSpace: 'pre-wrap', marginBottom: '4rem' }}>
+          <p style={{ 
+            fontSize: '1.35rem', 
+            lineHeight: '1.8', 
+            color: 'var(--on-surface)', 
+            opacity: 0.8, 
+            whiteSpace: 'pre-wrap', 
+            marginBottom: '4rem',
+            overflowWrap: 'anywhere'
+          }}>
             {post.description}
           </p>
         </div>
