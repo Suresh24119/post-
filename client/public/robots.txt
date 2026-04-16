@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://postmanager.example.com/sitemap.xml
