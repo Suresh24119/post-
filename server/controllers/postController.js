@@ -118,7 +118,10 @@ export const getPosts = async (req, res) => {
 export const getPostById = async (req, res) => {
   try {
     const { id } = req.params;
-    const { userId } = req.query; // Expect userId from client
+    let { userId } = req.query; 
+
+    // Clean userId if it's passed as a string 'undefined' or 'null'
+    if (userId === 'undefined' || userId === 'null') userId = null;
 
     const { data, error } = await supabase
       .from("posts")
@@ -136,7 +139,7 @@ export const getPostById = async (req, res) => {
     if (!data) return res.status(404).json({ message: "Intelligence Node Not Found" });
 
     // Privacy Check
-    if (!data.is_public && data.user_id !== userId) {
+    if (!data.is_public && String(data.user_id) !== String(userId)) {
       return res.status(403).json({ message: "Secure Node: Access Denied" });
     }
     
@@ -150,7 +153,9 @@ export const getPostById = async (req, res) => {
 export const downloadPostFile = async (req, res) => {
   try {
     const { id } = req.params;
-    const { userId } = req.query;
+    let { userId } = req.query;
+
+    if (userId === 'undefined' || userId === 'null') userId = null;
 
     const { data: post, error: postError } = await supabase
       .from("posts")
@@ -163,7 +168,7 @@ export const downloadPostFile = async (req, res) => {
     }
 
     // Privacy Check
-    if (!post.is_public && post.user_id !== userId) {
+    if (!post.is_public && String(post.user_id) !== String(userId)) {
       return res.status(403).json({ message: "Secure Asset: Authorization required" });
     }
 
