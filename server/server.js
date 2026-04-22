@@ -9,7 +9,14 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-
+app.get("/", (req, res) => {
+  res.send(`
+    <h1 style="text-align:center;">🌿 W e l c o m e      t o        m y        b a c k e n d ...</h1>
+    <p style="text-align:center; font-size:18px;">
+     ✨ → Created by <b>  Suresh Choudhary</b> ✔
+    </p>
+  `);
+});
 // Middleware
 app.use(cors());
 app.use(express.json());
